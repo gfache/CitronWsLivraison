@@ -13,36 +13,68 @@ public class DistanceService implements IDistanceService {
 
 	@Autowired
 	private IDistanceDAO distanceDAO;
-	
+
 	@Override
 	public List<Distance> getAllDistance() {
-		return distanceDAO.getAllDistance();
-	}
-	
-	@Override
-	public Distance getDistanceById(int distanceId) {
-		Distance distance = distanceDAO.getDistanceById(distanceId);
-		return distance;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public synchronized boolean addDistance(Distance distance) {
-		if (distanceDAO.distanceExists(distance.getLongitudeA(), distance.getLatitudeA(), distance.getLongitudeB(), distance.getLatitudeB())) {
-			return false;
-		} else {
-			distanceDAO.addDistance(distance);
-			return true;
-		}
+	public Distance getDistanceById(int distanceId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addDistance(Distance distance) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public void updateDistance(Distance distance) {
-		distanceDAO.updateDistance(distance);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void deleteDistance(int distanceId) {
-		distanceDAO.deleteDistance(distanceId);
+		// TODO Auto-generated method stub
+		
 	}
+	
+	
+	
+//	@Override
+//	public List<Distance> getAllDistance() {
+//		return distanceDAO.getAllDistance();
+//	}
+//	
+//	@Override
+//	public Distance getDistanceById(int distanceId) {
+//		Distance distance = distanceDAO.getDistanceById(distanceId);
+//		return distance;
+//	}
+//
+//	@Override
+//	public synchronized boolean addDistance(Distance distance) {
+//		if (distanceDAO.distanceExists(distance.getLongitudeA(), distance.getLatitudeA(), distance.getLongitudeB(), distance.getLatitudeB())) {
+//			return false;
+//		} else {
+//			distanceDAO.addDistance(distance);
+//			return true;
+//		}
+//	}
+//
+//	@Override
+//	public void updateDistance(Distance distance) {
+//		distanceDAO.updateDistance(distance);
+//	}
+//
+//	@Override
+//	public void deleteDistance(int distanceId) {
+//		distanceDAO.deleteDistance(distanceId);
+//	}
 
 }

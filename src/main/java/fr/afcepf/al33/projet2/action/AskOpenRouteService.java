@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import fr.afcepf.al33.projet2.controller.AddressControler;
+import fr.afcepf.al33.projet2.controller.DistanceControler;
+import fr.afcepf.al33.projet2.controller.DistanceRepository;
 import fr.afcepf.al33.projet2.dao.IAddressDAO;
 import fr.afcepf.al33.projet2.entity.Address;
 
@@ -26,6 +28,8 @@ public class AskOpenRouteService {
 	@Autowired
 	AddressControler myAddressControler;
 	
+	@Autowired
+	DistanceRepository myDistanceRepository;
 	
 	@Autowired
 	AskOpenRouteService myOpenRouteService ;
@@ -107,16 +111,14 @@ public class AskOpenRouteService {
 
 		// Parsing of the Json object
 		JSONObject obj = new JSONObject(response.readEntity(String.class));
-		// distance =
-		// obj.getJSONArray("distances").getJSONObject(0).getJSONObject("geometry").getJSONArray("coordinates").getDouble(0);
-		System.out.println("coucou");
-
-		ArrayList<String> listdata = new ArrayList<String>();
+		//ArrayList<String> listdata = new ArrayList<String>();
 		JSONArray jArray = (JSONArray) obj.getJSONArray("distances").getJSONArray(0);//.getJSONArray(1);
-		String toto = jArray.toString();
-		System.out.println("toto");
+		System.out.println("Array distance ->" + obj.getJSONArray("distances").toString());
 		distance =  obj.getJSONArray("distances").getJSONArray(0).getDouble(1);
-		// distance = obj.getJSONArray("distances").getDouble(0);
+		
+		//Save the distance record in database before returning the result to the webservice
+		myDistanceRepository.addDistance(obj,coordinates_for_distance);
+		
 		return distance;
 	}
 

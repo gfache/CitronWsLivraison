@@ -38,6 +38,9 @@ public class Distance  implements Serializable {
 	
 	@Column(name="distance_b_to_a")
 	private Double distance_b_to_a;
+	
+	@Column(name="coordinates")
+	private String coordinates;
 
 	//Constructors
 	public Distance() {
@@ -107,6 +110,20 @@ public class Distance  implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+
+
+	public String getCoordinates() {
+		return coordinates;
+	}
+
+
+
+
+	public void setCoordinates(String coordinates) {
+		this.coordinates = coordinates;
 	}
 
 	

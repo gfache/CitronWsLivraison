@@ -16,63 +16,6 @@ public class AddressDAO implements IAddressDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<Address> getAllAddress() {
-//		String hql = "FROM address as addr ORDER BY addr.address_id";
-//		return (List<Address>) entityManager.createQuery(hql).getResultList();
-//	}
-//
-//	@Override
-//	public Address getAddressById(Long address_id) {
-//		return entityManager.find(Address.class, address_id);
-//	}
-//
-//	@Override
-//	public void addAddress(Address address) {
-//		try {
-//			entityManager.persist(address);
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
-//		
-//	}
-//
-//	@Override
-//	public void updateAddress(Address address) {
-//		Address addr = getAddressById(address.getAddress_id());
-//		addr.setBorough(address.getBorough());
-//		addr.setContinent(address.getContinent());
-//		addr.setCoordinates_0(address.getCoordinates_0());
-//		addr.setCoordinates_1(address.getCoordinates_1());
-//		addr.setCountry(address.getCountry());
-//		addr.setCountry_a(address.getCountry_a());
-//		addr.setGid(address.getGid());
-//		addr.setHousenumber(address.getHousenumber());
-//		addr.setLabel(address.getLabel());
-//		addr.setLocaladmin(address.getLocaladmin());
-//		addr.setLocality(address.getLocality());
-//		addr.setMacroregion(address.getMacroregion());
-//		addr.setPostalcode(address.getPostalcode());
-//		addr.setRegion(address.getRegion());
-//		addr.setStreet(address.getStreet());
-//		entityManager.flush();
-//
-//	}
-//
-//	@Override
-//	public void deleteAddress(Long address_id) {
-//		entityManager.remove(getAddressById(address_id));
-//	}
-//
-//	@Override
-//	public boolean addressExists(String gid) {
-//		String hql = "FROM address as addr WHERE addr.gid = ?";
-//		int count = entityManager.createQuery(hql).setParameter(1, gid).getResultList()
-//				.size();
-//		return count > 0 ? true : false;
-//	}
-
 	@Override
 	public <S extends Address> S save(S entity) {
 		try {
