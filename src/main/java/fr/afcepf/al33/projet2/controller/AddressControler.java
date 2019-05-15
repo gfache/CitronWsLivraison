@@ -38,7 +38,13 @@ public class AddressControler {
 		addressToInsert.setGid(obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").getString("gid"));
 		addressToInsert.setHousenumber(obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").getString("housenumber"));
 		addressToInsert.setLabel(obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").getString("label"));
-		addressToInsert.setLocaladmin(obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").getString("localadmin"));
+		
+		if (obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").has("localadmin"))
+		{
+			addressToInsert.setLocaladmin(obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").getString("localadmin"));
+		}
+		
+		
 		addressToInsert.setLocality(obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").getString("locality"));
 		addressToInsert.setMacroregion(obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").getString("macroregion"));
 		if (obj.getJSONArray("features").getJSONObject(0).getJSONObject("properties").has("postalcode"))
